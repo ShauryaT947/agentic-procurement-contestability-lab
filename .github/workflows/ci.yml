@@ -1,0 +1,43 @@
+name: Phase 1 synthetic-data CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "phase/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: phase-1-data-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Reproducibility and validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile generator and tests
+        run: python -m compileall -q scripts tests
+
+      - name: Run validation tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Regenerate committed fixtures
+        run: python scripts/generate_synthetic_data.py
+
+      - name: Confirm generated fixtures are unchanged
+        run: git diff --exit-code -- data/synthetic
