@@ -6,7 +6,7 @@ These instructions apply to the entire repository.
 
 This repository is an independent, fictional, synthetic research lab. Do not imply that the UAE Government, a UAE public authority, or any real organisation commissioned, approved, sponsored, adopted, or endorsed it.
 
-Until a later phase is explicitly authorised, work is limited to Phase 0 project controls and scaffolding. Do not implement the synthetic dataset, ranking engine, dashboard, governance matrix, evaluation report, valuation model, memo, slide deck, or demo.
+Current authorised scope is Phase 1: project controls plus deterministic synthetic scenario data and inert policy fixtures. Do not implement Phase 2 or later work: ranking or eligibility logic, recommendations, scoring weights, competition results, dashboard, governance matrix, evaluation report, valuation model, memo, slide deck, demo, external integrations, API calls, real-data retrieval, or procurement execution.
 
 ## Non-negotiable agent constraints
 
