@@ -1,3 +1,0 @@
-# Phase 0 development and CI tooling only.
-pytest>=8.0,<10.0
-ruff>=0.9,<1.0
